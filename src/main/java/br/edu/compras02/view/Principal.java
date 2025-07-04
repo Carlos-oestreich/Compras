@@ -633,7 +633,8 @@ public class Principal extends javax.swing.JFrame {
     // Ação do botão "Excluir Produto"
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
         produtoController.excluirProduto(index);
-        atualizaTabelaProduto(tblListaDeProdutos, produtoController.getListaDeProdutos());
+        produtoController.atualizaTabela(tblListaDeProdutos);
+        //atualizaTabelaProduto(tblListaDeProdutos, produtoController.getListaDeProdutos());
         limparCamposProduto();
         editar= false;
         index = -1;

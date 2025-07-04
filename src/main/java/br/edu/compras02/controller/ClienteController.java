@@ -4,6 +4,8 @@ package br.edu.compras02.controller;
 import br.edu.compras02.model.Cliente;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,5 +42,20 @@ public class ClienteController {
             return listaDeClientes.get(index);
         }
         return null;
+    }
+    public void atualizaTabela(JTable tabela){
+        DefaultTableModel modeloTabela = (DefaultTableModel) tabela.getModel();
+        
+        modeloTabela.setNumRows(0);
+        
+        for(Cliente p : listaDeClientes){
+            Object[] linha = {p.getNome(),
+                              p.getTelefone(),
+                              p.getDataDeNascimento(),
+                              p.getCpf(),
+                              p.getSexo()
+                            };
+            modeloTabela.addRow(linha);  
+        }
     }
 }

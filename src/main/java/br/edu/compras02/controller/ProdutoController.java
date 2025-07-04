@@ -7,6 +7,8 @@ package br.edu.compras02.controller;
 import java.util.ArrayList;
 import br.edu.compras02.model.Produto;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -42,5 +44,19 @@ public class ProdutoController {
             return listaDeProdutos.get(index);
         }
         return null;
+    }
+    public void atualizaTabela(JTable tabela){
+        DefaultTableModel modeloTabela = (DefaultTableModel) tabela.getModel();
+        
+        modeloTabela.setNumRows(0);
+        
+        for(Produto p : listaDeProdutos){
+            Object[] linha = {p.getNome(),
+                              p.getQuantidade(),
+                              p.getPreco(),
+                              p.getCodigo()
+                            };
+            modeloTabela.addRow(linha);  
+        }
     }
 }
